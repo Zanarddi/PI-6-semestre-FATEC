@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pi_6_semestre/screens/CategoriesScreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -114,6 +115,11 @@ class _MyHomePageState extends State<MyHomePage> {
               style: Theme.of(context).textTheme.headlineMedium,
             ),
             Text('Ótimo teste'),
+            ElevatedButton(
+                onPressed: () {
+                  _navigateToCategoriesScreen(context);
+                },
+                child: Text('Categorias')),
           ],
         ),
       ),
@@ -138,5 +144,10 @@ class _MyHomePageState extends State<MyHomePage> {
       ]),
       // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+
+  void _navigateToCategoriesScreen(BuildContext context) {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (ctx) => CategoriesScreen()));
   }
 }
