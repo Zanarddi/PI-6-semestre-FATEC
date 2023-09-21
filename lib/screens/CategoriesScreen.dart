@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:pi_6_semestre/widgets/ClassWrapper.dart';
+import 'package:reorderables/reorderables.dart';
 
-class CategoriesScreen extends StatelessWidget {
+class CategoriesScreen extends StatefulWidget {
+  @override
+  State<CategoriesScreen> createState() => _CategoriesScreenState();
+}
+
+class _CategoriesScreenState extends State<CategoriesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,6 +21,7 @@ class CategoriesScreen extends StatelessWidget {
             const Text(
               'You have pushed the button this many times:',
             ),
+            ClassWrapper(),
             ElevatedButton(
                 onPressed: () {
                   _goBack(context);
