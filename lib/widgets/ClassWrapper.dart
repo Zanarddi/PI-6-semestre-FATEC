@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:pi_6_semestre/widgets/CardCategory.dart';
 import 'package:reorderables/reorderables.dart';
+import 'package:pi_6_semestre/models/CategoryModel.dart';
 
 class ClassWrapper extends StatefulWidget {
   @override
@@ -7,23 +9,26 @@ class ClassWrapper extends StatefulWidget {
 }
 
 class _ClassWrapperState extends State<ClassWrapper> {
-  final double _iconSize = 90;
-  late List<Widget> _categorias;
+  final double _iconSize = 20;
+  CategoryModel categoriaFake = CategoryModel(
+      1, 'title', 'pi_6_semestre/assets/images/category/example.png');
+  List<Widget> _categorias = List<Widget>.generate(1, (index) => null);
 
   @override
   void initState() {
     super.initState();
-    _categorias = <Widget>[
-      Icon(Icons.filter_1, size: _iconSize),
-      Icon(Icons.filter_2, size: _iconSize),
-      Icon(Icons.filter_3, size: _iconSize),
-      Icon(Icons.filter_4, size: _iconSize),
-      Icon(Icons.filter_5, size: _iconSize),
-      Icon(Icons.filter_6, size: _iconSize),
-      Icon(Icons.filter_7, size: _iconSize),
-      Icon(Icons.filter_8, size: _iconSize),
-      Icon(Icons.filter_9, size: _iconSize),
-    ];
+    _categorias.add(CardCategory(categoriaFake));
+    // _categorias = <Widget>[
+    //   Icon(Icons.filter_1, size: _iconSize),
+    //   Icon(Icons.filter_2, size: _iconSize),
+    //   Icon(Icons.filter_3, size: _iconSize),
+    //   Icon(Icons.filter_4, size: _iconSize),
+    //   Icon(Icons.filter_5, size: _iconSize),
+    //   Icon(Icons.filter_6, size: _iconSize),
+    //   Icon(Icons.filter_7, size: _iconSize),
+    //   Icon(Icons.filter_8, size: _iconSize),
+    //   Icon(Icons.filter_9, size: _iconSize),
+    // ];
   }
 
   @override
@@ -56,34 +61,6 @@ class _ClassWrapperState extends State<ClassWrapper> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         wrap,
-        ButtonBar(
-          alignment: MainAxisAlignment.start,
-          children: <Widget>[
-            IconButton(
-              iconSize: 50,
-              icon: Icon(Icons.add_circle),
-              color: Colors.deepOrange,
-              padding: const EdgeInsets.all(0.0),
-              onPressed: () {
-                var newTile = Icon(Icons.filter_9_plus, size: _iconSize);
-                setState(() {
-                  _categorias.add(newTile);
-                });
-              },
-            ),
-            IconButton(
-              iconSize: 50,
-              icon: Icon(Icons.remove_circle),
-              color: Colors.teal,
-              padding: const EdgeInsets.all(0.0),
-              onPressed: () {
-                setState(() {
-                  _categorias.removeAt(0);
-                });
-              },
-            ),
-          ],
-        ),
       ],
     );
 

@@ -7,22 +7,17 @@ class CardsScreen extends StatefulWidget {
 }
 
 class _CardsScreen extends State<CardsScreen> {
-  final double _iconSize = 90;
-  List<Widget> _tiles = List.empty();
+  List<Widget> _cards = List.empty();
+  final double _cardSize = 90;
 
   @override
   void initState() {
     super.initState();
-    _tiles = <Widget>[
-      Icon(Icons.filter_1, size: _iconSize),
-      Icon(Icons.filter_2, size: _iconSize),
-      Icon(Icons.filter_3, size: _iconSize),
-      Icon(Icons.filter_4, size: _iconSize),
-      Icon(Icons.filter_5, size: _iconSize),
-      Icon(Icons.filter_6, size: _iconSize),
-      Icon(Icons.filter_7, size: _iconSize),
-      Icon(Icons.filter_8, size: _iconSize),
-      Icon(Icons.filter_9, size: _iconSize),
+    _cards = <Widget>[
+      Icon(Icons.filter_1, size: _cardSize),
+      Icon(Icons.filter_2, size: _cardSize),
+      Icon(Icons.filter_3, size: _cardSize),
+      Icon(Icons.filter_4, size: _cardSize)
     ];
   }
 
@@ -30,44 +25,53 @@ class _CardsScreen extends State<CardsScreen> {
   Widget build(BuildContext context) {
     void _onReorder(int oldIndex, int newIndex) {
       setState(() {
-        Widget row = _tiles.removeAt(oldIndex);
-        _tiles.insert(newIndex, row);
+        Widget row = _cards.removeAt(oldIndex);
+        _cards.insert(newIndex, row);
       });
     }
 
     var wrap = ReorderableWrap(
-        spacing: 8.0,
-        runSpacing: 4.0,
-        padding: const EdgeInsets.all(8),
-        children: _tiles,
-        onReorder: _onReorder,
-        onNoReorder: (int index) {
-          //this callback is optional
-          debugPrint(
-              '${DateTime.now().toString().substring(5, 22)} reorder cancelled. index:$index');
-        },
-        onReorderStarted: (int index) {
-          //this callback is optional
-          debugPrint(
-              '${DateTime.now().toString().substring(5, 22)} reorder started: index:$index');
-        });
+      spacing: 8.0,
+      runSpacing: 4.0,
+      padding: const EdgeInsets.all(8),
+      children: _cards,
+      onReorder: _onReorder,
+      onNoReorder: (int index) {
+        debugPrint(
+            '${DateTime.now().toString().substring(5, 22)} reorder cancelled. index:$index');
+      },
+      onReorderStarted: (int index) {
+        debugPrint(
+            '${DateTime.now().toString().substring(5, 22)} reorder started: index:$index');
+      },
+    );
 
-    var column = Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        wrap,
-        ButtonBar(
-          alignment: MainAxisAlignment.start,
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Cards'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            wrap,
+            const Text(
+              'You have pushed the button this many times:',
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  _goBack(context);
+                },
+                child: const Text('Go Back')),
             IconButton(
               iconSize: 50,
               icon: Icon(Icons.add_circle),
               color: Colors.deepOrange,
               padding: const EdgeInsets.all(0.0),
               onPressed: () {
-                var newTile = Icon(Icons.filter_9_plus, size: _iconSize);
+                var newTile = Icon(Icons.filter_9_plus, size: _cardSize);
                 setState(() {
-                  _tiles.add(newTile);
+                  _cards.add(newTile);
                 });
               },
             ),
@@ -78,17 +82,22 @@ class _CardsScreen extends State<CardsScreen> {
               padding: const EdgeInsets.all(0.0),
               onPressed: () {
                 setState(() {
-                  _tiles.removeAt(0);
+                  _cards.removeAt(0);
                 });
               },
             ),
           ],
         ),
-      ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        tooltip: 'Increment',
+        child: const Icon(Icons.add),
+      ),
     );
+  }
 
-    return SingleChildScrollView(
-      child: column,
-    );
+  void _goBack(BuildContext context) {
+    Navigator.of(context).pop();
   }
 }

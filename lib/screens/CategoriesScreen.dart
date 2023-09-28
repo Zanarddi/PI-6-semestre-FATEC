@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pi_6_semestre/widgets/ClassWrapper.dart';
 import 'package:reorderables/reorderables.dart';
+import 'package:pi_6_semestre/models/CategoryModel.dart';
 
 class CategoriesScreen extends StatefulWidget {
   @override
