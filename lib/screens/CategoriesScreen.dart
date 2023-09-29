@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pi_6_semestre/widgets/ClassWrapper.dart';
+import 'package:pi_6_semestre/widgets/CategoryWrapper.dart';
 import 'package:reorderables/reorderables.dart';
 import 'package:pi_6_semestre/models/CategoryModel.dart';
 
@@ -19,10 +19,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            ClassWrapper(),
+            CategoryWrapper(),
             ElevatedButton(
                 onPressed: () {
                   _goBack(context);
@@ -30,11 +27,6 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                 child: const Text('Go Back')),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
       ),
     );
   }

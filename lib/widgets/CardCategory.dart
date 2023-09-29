@@ -14,16 +14,17 @@ class CardCategory extends StatelessWidget {
       elevation: 3, // Sombra do card
       child: Column(
         children: <Widget>[
-          Image.network(
+          Image.asset(
             _categoria.imagePath,
+            // 'assets/images/category/example.png',
             fit: BoxFit.cover, // Ajustar a imagem dentro do card
-            height: 150, // Altura da imagem
+            height: 300, // Altura da imagem
           ),
           Padding(
-            padding: EdgeInsets.all(10.0), // Espaçamento interno
+            padding: const EdgeInsets.all(10.0), // Espaçamento interno
             child: Text(
               _categoria.title,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 16.0, // Tamanho da fonte do título
                 fontWeight: FontWeight.bold, // Negrito do título
               ),
