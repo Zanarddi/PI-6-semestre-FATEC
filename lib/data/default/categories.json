@@ -1,0 +1,70 @@
+{
+    "categories": [
+        {
+            "id": 1,
+            "index": 1,
+            "title": "Ações",
+            "imagePath": "test"
+        },
+        {
+            "id": 2,
+            "index": 1,
+            "title": "Alimentos",
+            "imagePath": "test"
+        },
+        {
+            "id": 3,
+            "index": 1,
+            "title": "Roupas",
+            "imagePath": "test"
+        },
+        {
+            "id": 4,
+            "index": 1,
+            "title": "Objetos",
+            "imagePath": "test"
+        },
+        {
+            "id": 5,
+            "index": 1,
+            "title": "Brinquedos",
+            "imagePath": "test"
+        },
+        {
+            "id": 6,
+            "index": 1,
+            "title": "Animais",
+            "imagePath": "test"
+        },
+        {
+            "id": 1,
+            "index": 1,
+            "title": "Números",
+            "imagePath": "test"
+        },
+        {
+            "id": 1,
+            "index": 1,
+            "title": "Letras",
+            "imagePath": "test"
+        },
+        {
+            "id": 1,
+            "index": 1,
+            "title": "Cores",
+            "imagePath": "test"
+        },
+        {
+            "id": 1,
+            "index": 1,
+            "title": "Clima",
+            "imagePath": "test"
+        },
+        {
+            "id": 1,
+            "index": 1,
+            "title": "Formas",
+            "imagePath": "test"
+        }
+    ]
+}
