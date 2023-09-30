@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:pi_6_semestre/helpers/DataBaseHelper.dart';
+
 import 'package:pi_6_semestre/screens/CategoriesScreen.dart';
 import 'package:pi_6_semestre/screens/CardsScreen.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  final dbHelper = DataBaseHelper();
+  await dbHelper.initializeDataBase();
+
   runApp(const MyApp());
 }
 

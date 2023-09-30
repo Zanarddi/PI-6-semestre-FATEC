@@ -1,1 +1,60 @@
-{}
+{
+    "categories": [
+        {
+            "id": 1,
+            "index": 1,
+            "category": 1,
+            "title": "Triste",
+            "imagePath": "triste"
+        },
+        {
+            "id": 2,
+            "index": 2,
+            "category": 1,
+            "title": "Feliz",
+            "imagePath": "feliz"
+        },
+        {
+            "id": 3,
+            "index": 3,
+            "category": 1,
+            "title": "Bravo",
+            "imagePath": "bravo"
+        },
+        {
+            "id": 4,
+            "index": 4,
+            "category": 1,
+            "title": "Fome",
+            "imagePath": "fome"
+        },
+        {
+            "id": 5,
+            "index": 5,
+            "category": 1,
+            "title": "Passando Mal",
+            "imagePath": "passandomal"
+        },
+        {
+            "id": 6,
+            "index": 6,
+            "category": 1,
+            "title": "Sede",
+            "imagePath": "sede"
+        },
+        {
+            "id": 7,
+            "index": 7,
+            "category": 1,
+            "title": "Sono",
+            "imagePath": "sono"
+        },
+        {
+            "id": 8,
+            "index": 8,
+            "category": 1,
+            "title": "Incomodado",
+            "imagePath": "incomodado"
+        }
+    ]
+}

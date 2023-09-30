@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:pi_6_semestre/widgets/CategoryWrapper.dart';
-import 'package:reorderables/reorderables.dart';
 import 'package:pi_6_semestre/models/CategoryModel.dart';
 
 class CategoriesScreen extends StatefulWidget {
