@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:pi_6_semestre/helpers/DataBaseHelper.dart';
-
+import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 import 'package:pi_6_semestre/screens/CategoriesScreen.dart';
 import 'package:pi_6_semestre/screens/CardsScreen.dart';
 
+final dbHelper = DataBaseHelper();
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  final dbHelper = DataBaseHelper();
+  sqfliteFfiInit();
+  databaseFactory = databaseFactoryFfi;
+
   await dbHelper.initializeDataBase();
 
   runApp(const MyApp());

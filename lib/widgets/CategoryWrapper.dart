@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pi_6_semestre/main.dart';
 import 'package:pi_6_semestre/models/CategoryModel.dart';
 import 'package:pi_6_semestre/widgets/CardCategory.dart';
 
@@ -11,32 +12,35 @@ class CategoryWrapper extends StatefulWidget {
 
 class _CategoryWrapperState extends State<CategoryWrapper> {
   final double _iconSize = 90;
-  late List<Widget> _tiles;
+  late List<Widget> _tiles = [];
   final String samplePath = 'assets/images/category/example.png';
+  var categories;
+
   // CategoryModel
   @override
   void initState() {
     super.initState();
-    _tiles = <Widget>[
-      CardCategory(
-          CategoryModel(1, 'example1', 'assets/images/category/example.png', 0)),
-      CardCategory(
-          CategoryModel(2, 'example2', 'assets/images/category/example.png', 0)),
-      CardCategory(
-          CategoryModel(3, 'example3', 'assets/images/category/example.png', 0)),
-      CardCategory(
-          CategoryModel(4, 'example4', 'assets/images/category/example.png', 0)),
-      CardCategory(
-          CategoryModel(5, 'example5', 'assets/images/category/example.png', 0)),
-      // Icon(Icons.filter_2, size: _iconSize),
-      // Icon(Icons.filter_3, size: _iconSize),
-      // Icon(Icons.filter_4, size: _iconSize),
-      // Icon(Icons.filter_5, size: _iconSize),
-      // Icon(Icons.filter_6, size: _iconSize),
-      // Icon(Icons.filter_7, size: _iconSize),
-      // Icon(Icons.filter_8, size: _iconSize),
-      // Icon(Icons.filter_9, size: _iconSize),
-    ];
+    _loadCategories();
+    _tiles;
+    // _tiles = <Widget>[
+    //   CardCategory(CategoryModel(
+    //       1, 'example1', 'assets/images/category/example.png', 0)),
+    //   CardCategory(CategoryModel(
+    //       2, 'example2', 'assets/images/category/example.png', 0)),
+    //   CardCategory(CategoryModel(
+    //       3, 'example3', 'assets/images/category/example.png', 0)),
+    //   CardCategory(CategoryModel(
+    //       4, 'example4', 'assets/images/category/example.png', 0)),
+    //   CardCategory(CategoryModel(
+    //       5, 'example5', 'assets/images/category/example.png', 0)),
+    // ];
+  }
+
+  Future<void> _loadCategories() async {
+    categories = await dbHelper.getCategories();
+    setState(() {
+      _tiles = categories.map((category) => CardCategory(category)).toList();
+    });
   }
 
   @override
