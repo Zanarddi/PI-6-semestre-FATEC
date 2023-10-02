@@ -19,15 +19,15 @@ class _CategoryWrapperState extends State<CategoryWrapper> {
     super.initState();
     _tiles = <Widget>[
       CardCategory(
-          CategoryModel(1, 'example1', 'assets/images/category/example.png')),
+          CategoryModel(1, 'example1', 'assets/images/category/example.png', 0)),
       CardCategory(
-          CategoryModel(2, 'example2', 'assets/images/category/example.png')),
+          CategoryModel(2, 'example2', 'assets/images/category/example.png', 0)),
       CardCategory(
-          CategoryModel(3, 'example3', 'assets/images/category/example.png')),
+          CategoryModel(3, 'example3', 'assets/images/category/example.png', 0)),
       CardCategory(
-          CategoryModel(4, 'example4', 'assets/images/category/example.png')),
+          CategoryModel(4, 'example4', 'assets/images/category/example.png', 0)),
       CardCategory(
-          CategoryModel(5, 'example5', 'assets/images/category/example.png')),
+          CategoryModel(5, 'example5', 'assets/images/category/example.png', 0)),
       // Icon(Icons.filter_2, size: _iconSize),
       // Icon(Icons.filter_3, size: _iconSize),
       // Icon(Icons.filter_4, size: _iconSize),
