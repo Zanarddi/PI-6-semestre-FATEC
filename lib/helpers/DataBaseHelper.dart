@@ -14,7 +14,7 @@ class DataBaseHelper {
       version: 1,
       onCreate: (db, version) async {
         await db.execute(
-          'CREATE TABLE category(id INTEGER PRIMARY KEY, index INTEGER, title TEXT, imagePath TEXT)',
+          'CREATE TABLE category(id INTEGER PRIMARY KEY, index INTEGER, title TEXT, imagePath TEXT, parent INTEGER, FOREIGN KEY(parent) REFERENCES category(id))',
         );
         await db.execute(
           'CREATE TABLE card(id INTEGER PRIMARY KEY, index INTEGER, category INTEGER, title TEXT, imagePath TEXT, FOREIGN KEY(category) REFERENCES category(id))',
