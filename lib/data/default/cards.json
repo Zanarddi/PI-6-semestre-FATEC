@@ -55,6 +55,125 @@
             "category": 1,
             "title": "Incomodado",
             "imagePath": "incomodado"
+        },
+        {
+            "id": 9,
+            "index": 1,
+            "category": 2,
+            "title": "Escola",
+            "imagePath": "escola"
+        },
+        {
+            "id": 10,
+            "index": 2,
+            "category": 2,
+            "title": "Banheiro",
+            "imagePath": "banheiro"
+        },
+        {
+            "id": 11,
+            "index": 3,
+            "category": 2,
+            "title": "Igreja",
+            "imagePath": "igreja"
+        },
+        {
+            "id": 12,
+            "index": 4,
+            "category": 2,
+            "title": "Parquinho",
+            "imagePath": "parquinho"
+        },
+        {
+            "id": 13,
+            "index": 5,
+            "category": 2,
+            "title": "Casa",
+            "imagePath": "casa"
+        },
+        {
+            "id": 14,
+            "index": 6,
+            "category": 2,
+            "title": "Cozinha",
+            "imagePath": "cozinha"
+        },
+        {
+            "id": 15,
+            "index": 7,
+            "category": 2,
+            "title": "Sala",
+            "imagePath": "sala"
+        },
+        {
+            "id": 16,
+            "index": 8,
+            "category": 2,
+            "title": "Quarto",
+            "imagePath": "quarto"
+        },
+        {
+            "id": 17,
+            "index": 9,
+            "category": 2,
+            "title": "Quintal",
+            "imagePath": "quintal"
+        },
+        {
+            "id": 18,
+            "index": 1,
+            "category": 3,
+            "title": "Assistir",
+            "imagePath": "assistir"
+        },
+        {
+            "id": 19,
+            "index": 2,
+            "category": 3,
+            "title": "Passear",
+            "imagePath": "passear"
+        },
+        {
+            "id": 20,
+            "index": 3,
+            "category": 3,
+            "title": "Dormir",
+            "imagePath": "dormir"
+        },
+        {
+            "id": 21,
+            "index": 4,
+            "category": 3,
+            "title": "Jogar",
+            "imagePath": "jogar"
+        },
+        {
+            "id": 22,
+            "index": 5,
+            "category": 3,
+            "title": "Estudar",
+            "imagePath": "estudar"
+        },
+        {
+            "id": 23,
+            "index": 6,
+            "category": 3,
+            "title": "Ler",
+            "imagePath": "ler"
+        },
+        {
+            "id": 24,
+            "index": 7,
+            "category": 3,
+            "title": "Desenhar",
+            "imagePath": "desenhar"
+        },
+        {
+            "id": 25,
+            "index": 8,
+            "category": 3,
+            "title": "Escovar os Dentes",
+            "imagePath": "escovarosdentes"
         }
     ]
 }
