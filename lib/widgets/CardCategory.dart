@@ -4,8 +4,20 @@ import 'package:pi_6_semestre/models/CategoryModel.dart';
 
 class CardCategory extends StatelessWidget {
   late CategoryModel _categoria;
+  final String defaultPath = "assets/images/category/example.png";
+
   CardCategory(CategoryModel categoria) {
     _categoria = categoria;
+  }
+
+  AssetImage getImage() {
+    AssetImage img;
+    try {
+      img = AssetImage("assets/images/category/${_categoria.imagePath}.png");
+    } catch (e) {
+      img = AssetImage(defaultPath);
+    }
+    return img;
   }
 
   @override
@@ -15,8 +27,8 @@ class CardCategory extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Image.asset(
-            _categoria.imagePath,
-            // 'assets/images/category/example.png',
+            // "assets/images/category/${_categoria.imagePath}.png",
+            defaultPath,
             fit: BoxFit.cover, // Ajustar a imagem dentro do card
             height: 300, // Altura da imagem
           ),

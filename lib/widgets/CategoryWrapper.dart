@@ -39,13 +39,23 @@ class _CategoryWrapperState extends State<CategoryWrapper> {
   Future<void> _loadCategories() async {
     categories = await dbHelper.getCategories();
     setState(() {
-      _tiles = categories.map((category) => CardCategory(category)).toList();
+      print(categories);
+      for (var category in categories) {
+        print(category['id']);
+      }
+      categories = categories
+          .map((category) => CategoryModel(category['indx'], category['title'],
+              category['imagePath'], category['parent']))
+          .toList();
+      _tiles =
+          categories.map<Widget>((category) => CardCategory(category)).toList();
     });
   }
 
   @override
   Widget build(BuildContext context) {
     void _onReorder(int oldIndex, int newIndex) {
+      // TODO: implementar a troca de posições no banco de dados
       setState(() {
         Widget row = _tiles.removeAt(oldIndex);
         _tiles.insert(newIndex, row);
