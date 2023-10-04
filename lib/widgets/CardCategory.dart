@@ -22,28 +22,31 @@ class CardCategory extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 3, // Sombra do card
-      child: Column(
-        children: <Widget>[
-          Image.asset(
-            // "assets/images/category/${_categoria.imagePath}.png",
-            defaultPath,
-            fit: BoxFit.cover, // Ajustar a imagem dentro do card
-            height: 300, // Altura da imagem
-          ),
-          Padding(
-            padding: const EdgeInsets.all(10.0), // Espaçamento interno
-            child: Text(
-              _categoria.title,
-              style: const TextStyle(
-                fontSize: 16.0, // Tamanho da fonte do título
-                fontWeight: FontWeight.bold, // Negrito do título
+    return GestureDetector(
+        onTap: () => {print("Clicou na categoria ${_categoria.title}")},
+        child: Card(
+          elevation: 3, // Sombra do card
+          child: Column(
+            children: <Widget>[
+              Image.asset(
+                // "assets/images/category/${_categoria.imagePath}.png",
+                defaultPath,
+                fit: BoxFit.cover, // Ajustar a imagem dentro do card
+                height: 300,
+                width: 300, // Altura da imagem
               ),
-            ),
+              Padding(
+                padding: const EdgeInsets.all(10.0), // Espaçamento interno
+                child: Text(
+                  _categoria.title,
+                  style: const TextStyle(
+                    fontSize: 16.0, // Tamanho da fonte do título
+                    fontWeight: FontWeight.bold, // Negrito do título
+                  ),
+                ),
+              ),
+            ],
           ),
-        ],
-      ),
-    );
+        ));
   }
 }

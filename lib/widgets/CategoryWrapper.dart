@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pi_6_semestre/helpers/DataBaseHelper.dart';
 import 'package:pi_6_semestre/main.dart';
 import 'package:pi_6_semestre/models/CategoryModel.dart';
 import 'package:pi_6_semestre/widgets/CardCategory.dart';
@@ -22,27 +23,11 @@ class _CategoryWrapperState extends State<CategoryWrapper> {
     super.initState();
     _loadCategories();
     _tiles;
-    // _tiles = <Widget>[
-    //   CardCategory(CategoryModel(
-    //       1, 'example1', 'assets/images/category/example.png', 0)),
-    //   CardCategory(CategoryModel(
-    //       2, 'example2', 'assets/images/category/example.png', 0)),
-    //   CardCategory(CategoryModel(
-    //       3, 'example3', 'assets/images/category/example.png', 0)),
-    //   CardCategory(CategoryModel(
-    //       4, 'example4', 'assets/images/category/example.png', 0)),
-    //   CardCategory(CategoryModel(
-    //       5, 'example5', 'assets/images/category/example.png', 0)),
-    // ];
   }
 
   Future<void> _loadCategories() async {
-    categories = await dbHelper.getCategories();
+    categories = await DataBaseHelper.instance.getCategories();
     setState(() {
-      print(categories);
-      for (var category in categories) {
-        print(category['id']);
-      }
       categories = categories
           .map((category) => CategoryModel(category['indx'], category['title'],
               category['imagePath'], category['parent']))

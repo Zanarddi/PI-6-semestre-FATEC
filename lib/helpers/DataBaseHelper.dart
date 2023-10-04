@@ -4,13 +4,19 @@ import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart' as path;
 
 class DataBaseHelper {
-  late Database _database;
+  DataBaseHelper._privateConstructor();
+  static final DataBaseHelper instance = DataBaseHelper._privateConstructor();
 
-  Future<void> initializeDataBase() async {
+  static Database? _database;
+
+  Future<Database> get database async =>
+      _database ??= await initializeDataBase();
+
+  Future<Database> initializeDataBase() async {
     final databasePath = await getDatabasesPath();
     final pathToDatabase = path.join(databasePath, 'database.db');
 
-    _database = await openDatabase(
+    return await openDatabase(
       pathToDatabase,
       version: 1,
       onCreate: (db, version) async {
@@ -28,9 +34,6 @@ class DataBaseHelper {
 
         final dataCategories = json.decode(jsonStringCategories);
         final dataCards = json.decode(jsonStringCards);
-
-        print(dataCategories);
-        print(dataCards);
 
         for (final category in dataCategories['categories']) {
           await db.insert(
@@ -61,6 +64,13 @@ class DataBaseHelper {
   }
 
   Future<List<Map<String, dynamic>>> getCategories() async {
-    return await _database.query('category');
+    Database db = await instance.database;
+    return await db.query('category');
+  }
+
+  Future<List<Map<String, dynamic>>> getCards(int categoryId) async {
+    Database db = await instance.database;
+    return await db
+        .query('card', where: "category IN (?)", whereArgs: [categoryId]);
   }
 }

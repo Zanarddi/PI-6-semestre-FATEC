@@ -11,22 +11,23 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Categories'),
-        ),
-        body: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              CategoryWrapper(),
-              ElevatedButton(
-                  onPressed: () {
-                    _goBack(context);
-                  },
-                  child: const Text('Go Back')),
-            ],
-          ),
-        ));
+        // appBar: AppBar(
+        //   title: const Text('Categories'),
+        // ),
+        body: Center(
+            child: SingleChildScrollView(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          CategoryWrapper(),
+          ElevatedButton(
+              onPressed: () {
+                _goBack(context);
+              },
+              child: const Text('Go Back')),
+        ],
+      ),
+    )));
   }
 
   void _goBack(BuildContext context) {

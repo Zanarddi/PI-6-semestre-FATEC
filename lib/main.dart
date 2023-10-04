@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:pi_6_semestre/helpers/DataBaseHelper.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 import 'package:pi_6_semestre/screens/CategoriesScreen.dart';
 import 'package:pi_6_semestre/screens/CardsScreen.dart';
 
-final dbHelper = DataBaseHelper();
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   sqfliteFfiInit();
   databaseFactory = databaseFactoryFfi;
 
-  await dbHelper.initializeDataBase();
+  // await dbHelper.initializeDataBase();
 
   runApp(const MyApp());
 }
@@ -40,6 +38,7 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
+        scaffoldBackgroundColor: Color.fromARGB(255, 255, 245, 192),
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
