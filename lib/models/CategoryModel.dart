@@ -1,10 +1,11 @@
 class CategoryModel {
+  int id;
   int indx;
   String title;
   String imagePath;
   int parent;
 
-  CategoryModel(this.indx, this.title, this.imagePath, this.parent);
+  CategoryModel(this.id, this.indx, this.title, this.imagePath, this.parent);
 
   Map<String, dynamic> toMap() {
     return {
@@ -17,6 +18,6 @@ class CategoryModel {
 
   @override
   String toString() {
-    return 'CategoryModel{indx: $indx, title: $title, imagePath: $imagePath, parent: $parent}';
+    return 'CategoryModel{id: $id, indx: $indx, title: $title, imagePath: $imagePath, parent: $parent}';
   }
 }

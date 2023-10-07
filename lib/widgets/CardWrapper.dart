@@ -1,38 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:pi_6_semestre/helpers/DataBaseHelper.dart';
+import 'package:pi_6_semestre/models/CardModel.dart';
 import 'package:pi_6_semestre/models/CategoryModel.dart';
+import 'package:pi_6_semestre/widgets/CardCard.dart';
 import 'package:pi_6_semestre/widgets/CategoryCard.dart';
 
 import 'package:reorderables/reorderables.dart';
 
-class CategoryWrapper extends StatefulWidget {
+class CardWrapper extends StatefulWidget {
+  final CategoryModel categoria;
+  const CardWrapper({required this.categoria});
   @override
-  _CategoryWrapperState createState() => _CategoryWrapperState();
+  _CardWrapperState createState() => _CardWrapperState();
 }
 
-class _CategoryWrapperState extends State<CategoryWrapper> {
+class _CardWrapperState extends State<CardWrapper> {
   final double _iconSize = 90;
   late List<Widget> _tiles = [];
   final String samplePath = 'assets/images/category/example.png';
-  var categories;
+  var cards;
 
   // CategoryModel
   @override
   void initState() {
     super.initState();
-    _loadCategories();
+    _loadCards();
     _tiles;
   }
 
-  Future<void> _loadCategories() async {
-    categories = await DataBaseHelper.instance.getCategories();
+  Future<void> _loadCards() async {
+    cards = await DataBaseHelper.instance.getCards(widget.categoria.id);
+    print(cards);
     setState(() {
-      categories = categories
-          .map((category) => CategoryModel(category['id'], category['indx'],
-              category['title'], category['imagePath'], category['parent']))
+      cards = cards
+          .map((card) => CardModel(card['id'], card['indx'], card['category'],
+              card['title'], card['imagePath']))
           .toList();
-      _tiles =
-          categories.map<Widget>((category) => CategoryCard(category)).toList();
+      _tiles = cards.map<Widget>((card) => CardCard(card)).toList();
     });
   }
 
@@ -64,7 +68,7 @@ class _CategoryWrapperState extends State<CategoryWrapper> {
         });
 
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[wrap],
     );
   }

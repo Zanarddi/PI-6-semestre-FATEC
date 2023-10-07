@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pi_6_semestre/widgets/CategoryWrapper.dart';
-import 'package:pi_6_semestre/models/CategoryModel.dart';
+import 'package:pi_6_semestre/widgets/CustomAppBar.dart';
 
 class CategoriesScreen extends StatefulWidget {
   @override
@@ -11,23 +11,24 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        // appBar: AppBar(
-        //   title: const Text('Categories'),
-        // ),
-        body: Center(
-            child: SingleChildScrollView(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          CategoryWrapper(),
-          ElevatedButton(
-              onPressed: () {
-                _goBack(context);
-              },
-              child: const Text('Go Back')),
-        ],
+      appBar: CustomAppBar(
+        title: 'Categorias',
+        onSettingsPressed: () {},
+        onBackButtonPressed: () {
+          _goBack(context);
+        },
       ),
-    )));
+      body: Center(
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              CategoryWrapper(),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 
   void _goBack(BuildContext context) {

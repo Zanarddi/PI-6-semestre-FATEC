@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 import 'package:pi_6_semestre/screens/CategoriesScreen.dart';
-import 'package:pi_6_semestre/screens/CardsScreen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -129,11 +128,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   _navigateToCategoriesScreen(context);
                 },
                 child: Text('Categorias')),
-            ElevatedButton(
-                onPressed: () {
-                  _navigateToCardsScreen(context);
-                },
-                child: Text('Cards')),
           ],
         ),
       ),
@@ -149,10 +143,5 @@ class _MyHomePageState extends State<MyHomePage> {
   void _navigateToCategoriesScreen(BuildContext context) {
     Navigator.of(context)
         .push(MaterialPageRoute(builder: (ctx) => CategoriesScreen()));
-  }
-
-  void _navigateToCardsScreen(BuildContext context) {
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (ctx) => CardsScreen()));
   }
 }
