@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:pi_6_semestre/helpers/DataBaseHelper.dart';
 import 'package:pi_6_semestre/models/CategoryModel.dart';
 import 'package:pi_6_semestre/widgets/CategoryCard.dart';
-
 import 'package:reorderables/reorderables.dart';
 
 class CategoryWrapper extends StatefulWidget {
+  final int parent;
+  const CategoryWrapper({required this.parent});
+
   @override
   _CategoryWrapperState createState() => _CategoryWrapperState();
 }
@@ -25,7 +27,9 @@ class _CategoryWrapperState extends State<CategoryWrapper> {
   }
 
   Future<void> _loadCategories() async {
-    categories = await DataBaseHelper.instance.getCategories();
+    categories = await DataBaseHelper.instance.getCategories(
+      widget.parent,
+    );
     setState(() {
       categories = categories
           .map((category) => CategoryModel(category['id'], category['indx'],

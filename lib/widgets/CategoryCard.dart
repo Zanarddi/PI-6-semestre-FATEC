@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pi_6_semestre/models/CategoryModel.dart';
 import 'package:pi_6_semestre/screens/CardsScreen.dart';
+import 'package:pi_6_semestre/helpers/DataBaseHelper.dart';
+import 'package:pi_6_semestre/screens/CategoriesScreen.dart';
 
 class CategoryCard extends StatelessWidget {
   late CategoryModel _categoria;
@@ -23,36 +25,53 @@ class CategoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-        // onTap: () => {print("Clicou na categoria ${_categoria.title}")},
-        onTap: () => {_navigateToCardsScreen(context)},
-        child: Card(
-          elevation: 3, // Sombra do card
-          child: Column(
-            children: <Widget>[
-              Image.asset(
-                // "assets/images/category/${_categoria.imagePath}.png",
-                defaultPath,
-                fit: BoxFit.cover, // Ajustar a imagem dentro do card
-                height: 300,
-                width: 300, // Altura da imagem
-              ),
-              Padding(
-                padding: const EdgeInsets.all(10.0), // Espaçamento interno
-                child: Text(
-                  _categoria.title,
-                  style: const TextStyle(
-                    fontSize: 16.0, // Tamanho da fonte do título
-                    fontWeight: FontWeight.bold, // Negrito do título
-                  ),
+      onTap: () => {_tapHandler(context)},
+      child: Card(
+        clipBehavior: Clip.hardEdge,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30),
+        ),
+        // margin: const EdgeInsets.all(10),
+        elevation: 3, // Sombra do card
+        child: Column(
+          children: <Widget>[
+            Image.asset(
+              defaultPath,
+              fit: BoxFit.cover, // Ajustar a imagem dentro do card
+              height: 300,
+              width: 300, // Altura da imagem
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10.0), // Espaçamento interno
+              child: Text(
+                _categoria.title,
+                style: const TextStyle(
+                  fontSize: 16.0, // Tamanho da fonte do título
+                  fontWeight: FontWeight.bold, // Negrito do título
                 ),
               ),
-            ],
-          ),
-        ));
+            ),
+          ],
+        ),
+      ),
+    );
   }
 
-  void _navigateToCardsScreen(BuildContext context) {
-    Navigator.of(context).push(MaterialPageRoute(
-        builder: (ctx) => CardsScreen(categoria: _categoria)));
+  Future<void> _tapHandler(BuildContext context) async {
+    // verificar se no banco existem categorias com essa categoria como parent
+    if (await DataBaseHelper.instance.checkParent(_categoria.id)) {
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (ctx) =>
+              CategoriesScreen(parent: _categoria.id, title: _categoria.title),
+        ),
+      );
+    } else {
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (ctx) => CardsScreen(categoria: _categoria),
+        ),
+      );
+    }
   }
 }

@@ -3,6 +3,10 @@ import 'package:pi_6_semestre/widgets/CategoryWrapper.dart';
 import 'package:pi_6_semestre/widgets/CustomAppBar.dart';
 
 class CategoriesScreen extends StatefulWidget {
+  final int parent;
+  final String title;
+  const CategoriesScreen({required this.parent, required this.title});
+
   @override
   State<CategoriesScreen> createState() => _CategoriesScreenState();
 }
@@ -12,7 +16,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        title: 'Categorias',
+        title: widget.title,
         onSettingsPressed: () {},
         onBackButtonPressed: () {
           _goBack(context);
@@ -23,7 +27,9 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              CategoryWrapper(),
+              CategoryWrapper(
+                parent: widget.parent,
+              ),
             ],
           ),
         ),

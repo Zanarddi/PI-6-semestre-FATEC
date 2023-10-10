@@ -63,14 +63,22 @@ class DataBaseHelper {
     );
   }
 
-  Future<List<Map<String, dynamic>>> getCategories() async {
+  Future<List<Map<String, dynamic>>> getCategories(int parentId) async {
     Database db = await instance.database;
-    return await db.query('category');
+    return await db
+        .query('category', where: "parent IN (?)", whereArgs: [parentId]);
   }
 
   Future<List<Map<String, dynamic>>> getCards(int categoryId) async {
     Database db = await instance.database;
     return await db
         .query('card', where: "category IN (?)", whereArgs: [categoryId]);
+  }
+
+  Future<bool> checkParent(int categoryId) async {
+    Database db = await instance.database;
+    var result = await db
+        .query('category', where: "parent IN (?)", whereArgs: [categoryId]);
+    return result.isNotEmpty;
   }
 }

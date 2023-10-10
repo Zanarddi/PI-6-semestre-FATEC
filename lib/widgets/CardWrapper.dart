@@ -3,7 +3,6 @@ import 'package:pi_6_semestre/helpers/DataBaseHelper.dart';
 import 'package:pi_6_semestre/models/CardModel.dart';
 import 'package:pi_6_semestre/models/CategoryModel.dart';
 import 'package:pi_6_semestre/widgets/CardCard.dart';
-import 'package:pi_6_semestre/widgets/CategoryCard.dart';
 
 import 'package:reorderables/reorderables.dart';
 
@@ -30,7 +29,6 @@ class _CardWrapperState extends State<CardWrapper> {
 
   Future<void> _loadCards() async {
     cards = await DataBaseHelper.instance.getCards(widget.categoria.id);
-    print(cards);
     setState(() {
       cards = cards
           .map((card) => CardModel(card['id'], card['indx'], card['category'],

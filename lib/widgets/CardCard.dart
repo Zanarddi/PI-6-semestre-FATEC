@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:pi_6_semestre/models/CardModel.dart';
-import 'package:pi_6_semestre/models/CategoryModel.dart';
-import 'package:pi_6_semestre/screens/CardsScreen.dart';
 
 class CardCard extends StatelessWidget {
   late CardModel _card;
@@ -24,29 +22,33 @@ class CardCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-        onTap: () => {print(_card.toString())},
-        child: Card(
-          elevation: 3, // Sombra do card
-          child: Column(
-            children: <Widget>[
-              Image.asset(
-                defaultPath,
-                fit: BoxFit.cover, // Ajustar a imagem dentro do card
-                height: 300,
-                width: 300, // Altura da imagem
-              ),
-              Padding(
-                padding: const EdgeInsets.all(10.0), // Espaçamento interno
-                child: Text(
-                  _card.title,
-                  style: const TextStyle(
-                    fontSize: 16.0, // Tamanho da fonte do título
-                    fontWeight: FontWeight.bold, // Negrito do título
-                  ),
+      child: Card(
+        clipBehavior: Clip.hardEdge,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30),
+        ),
+        elevation: 3, // Sombra do card
+        child: Column(
+          children: <Widget>[
+            Image.asset(
+              defaultPath,
+              fit: BoxFit.cover, // Ajustar a imagem dentro do card
+              height: 300,
+              width: 300, // Altura da imagem
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10.0), // Espaçamento interno
+              child: Text(
+                _card.title,
+                style: const TextStyle(
+                  fontSize: 16.0, // Tamanho da fonte do título
+                  fontWeight: FontWeight.bold, // Negrito do título
                 ),
               ),
-            ],
-          ),
-        ));
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

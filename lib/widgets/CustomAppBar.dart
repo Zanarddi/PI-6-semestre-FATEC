@@ -14,18 +14,28 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      leading: IconButton(
-        icon: Icon(Icons.arrow_back),
-        onPressed: onBackButtonPressed,
-      ),
-      title: Text(title),
-      actions: [
-        IconButton(
-          icon: Icon(Icons.settings),
-          onPressed: onSettingsPressed,
+    return PreferredSize(
+      preferredSize: Size.fromHeight(150.0),
+      // child: Padding(
+      //   padding: const EdgeInsets.only(top: 0),
+      child: AppBar(
+        // toolbarHeight: 100.0,
+        backgroundColor: Color.fromARGB(255, 255, 245, 192),
+        // backgroundColor: Color.fromARGB(255, 158, 140, 51),
+        centerTitle: true,
+        title: Text(title),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: onBackButtonPressed,
         ),
-      ],
+        actions: [
+          IconButton(
+            icon: Icon(Icons.settings),
+            onPressed: onSettingsPressed,
+          ),
+        ],
+      ),
+      // ),
     );
   }
 
