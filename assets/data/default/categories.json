@@ -93,21 +93,21 @@
         },
         {
             "id": 14,
-            "indx": 4,
+            "indx": 1,
             "title": "Bebidas",
             "imagePath": "bebidas",
             "parent": 4
         },
         {
             "id": 15,
-            "indx": 4,
+            "indx": 2,
             "title": "Doces",
             "imagePath": "doces",
             "parent": 4
         },
         {
             "id": 16,
-            "indx": 4,
+            "indx": 3,
             "title": "Frutas",
             "imagePath": "frutas",
             "parent": 4
@@ -117,6 +117,13 @@
             "indx": 4,
             "title": "Legumes e Vegetais",
             "imagePath": "legumesevegetais",
+            "parent": 4
+        },
+        {
+            "id": 18,
+            "indx": 5,
+            "title": "Acompanhamentos",
+            "imagePath": "acompanhamentos",
             "parent": 4
         }
     ]

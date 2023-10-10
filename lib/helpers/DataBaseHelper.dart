@@ -26,6 +26,14 @@ class DataBaseHelper {
         await db.execute(
           'CREATE TABLE card(id INTEGER PRIMARY KEY, indx INTEGER, category INTEGER, title TEXT, imagePath TEXT, FOREIGN KEY(category) REFERENCES category(id))',
         );
+        await db.execute(
+          'CREATE TABLE settings(id INTEGER PRIMARY KEY, terms INTEGER)',
+        );
+
+        await db.insert('settings', {
+          'id': 1,
+          'terms': 0,
+        });
 
         final jsonStringCategories =
             await rootBundle.loadString('assets/data/default/categories.json');
@@ -61,6 +69,11 @@ class DataBaseHelper {
         }
       },
     );
+  }
+
+  Future<int> acceptTerms() async {
+    Database db = await instance.database;
+    return await db.update("settings", {'terms': 1}, where: "id = 1");
   }
 
   Future<List<Map<String, dynamic>>> getCategories(int parentId) async {
