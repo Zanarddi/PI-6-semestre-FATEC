@@ -32,29 +32,29 @@
             "id": 5,
             "indx": 5,
             "category": 1,
-            "title": "Passando Mal",
-            "imagePath": "passandomal"
+            "title": "Sede",
+            "imagePath": "sede"
         },
         {
             "id": 6,
             "indx": 6,
             "category": 1,
-            "title": "Sede",
-            "imagePath": "sede"
+            "title": "Sono",
+            "imagePath": "sono"
         },
         {
             "id": 7,
             "indx": 7,
             "category": 1,
-            "title": "Sono",
-            "imagePath": "sono"
+            "title": "Incomodado",
+            "imagePath": "incomodado"
         },
         {
             "id": 8,
             "indx": 8,
             "category": 1,
-            "title": "Incomodado",
-            "imagePath": "incomodado"
+            "title": "Doente",
+            "imagePath": "doente"
         },
         {
             "id": 9,
@@ -174,6 +174,181 @@
             "category": 3,
             "title": "Escovar os Dentes",
             "imagePath": "escovarosdentes"
+        },
+        {
+            "id": 26,
+            "indx": 1,
+            "category": 14,
+            "title": "Bebidas",
+            "imagePath": "bebidas"
+        },
+        {
+            "id": 27,
+            "indx": 2,
+            "category": 14,
+            "title": "Suco",
+            "imagePath": "suco"
+        },
+        {
+            "id": 28,
+            "indx": 3,
+            "category": 14,
+            "title": "Yakult",
+            "imagePath": "yakult"
+        },
+        {
+            "id": 29,
+            "indx": 1,
+            "category": 15,
+            "title": "Bolo",
+            "imagePath": "bolo"
+        },
+        {
+            "id": 30,
+            "indx": 2,
+            "category": 15,
+            "title": "Brigadeiro",
+            "imagePath": "brigadeiro"
+        },
+        {
+            "id": 31,
+            "indx": 3,
+            "category": 15,
+            "title": "Chocolate",
+            "imagePath": "chocolate"
+        },
+        {
+            "id": 32,
+            "indx": 4,
+            "category": 15,
+            "title": "Gelatina",
+            "imagePath": "gelatina"
+        },
+        {
+            "id": 33,
+            "indx": 5,
+            "category": 15,
+            "title": "Pudim",
+            "imagePath": "pudim"
+        },
+        {
+            "id": 34,
+            "indx": 6,
+            "category": 15,
+            "title": "Sorvete",
+            "imagePath": "sorvete"
+        },
+        {
+            "id": 35,
+            "indx": 1,
+            "category": 16,
+            "title": "Banana",
+            "imagePath": "banana"
+        },
+        {
+            "id": 36,
+            "indx": 2,
+            "category": 16,
+            "title": "Laranja",
+            "imagePath": "laranja"
+        },
+        {
+            "id": 37,
+            "indx": 3,
+            "category": 16,
+            "title": "Limão",
+            "imagePath": "limao"
+        },
+        {
+            "id": 38,
+            "indx": 4,
+            "category": 16,
+            "title": "Maça",
+            "imagePath": "maca"
+        },
+        {
+            "id": 39,
+            "indx": 5,
+            "category": 16,
+            "title": "Melancia",
+            "imagePath": "melancia"
+        },
+        {
+            "id": 40,
+            "indx": 6,
+            "category": 16,
+            "title": "Malão",
+            "imagePath": "melao"
+        },
+        {
+            "id": 41,
+            "indx": 7,
+            "category": 16,
+            "title": "Morango",
+            "imagePath": "morango"
+        },
+        {
+            "id": 42,
+            "indx": 8,
+            "category": 16,
+            "title": "Pera",
+            "imagePath": "pera"
+        },
+        {
+            "id": 43,
+            "indx": 9,
+            "category": 16,
+            "title": "Uva",
+            "imagePath": "uva"
+        },
+        {
+            "id": 44,
+            "indx": 1,
+            "category": 17,
+            "title": "Alface",
+            "imagePath": "alface"
+        },
+        {
+            "id": 45,
+            "indx": 2,
+            "category": 17,
+            "title": "Batata",
+            "imagePath": "batata"
+        },
+        {
+            "id": 46,
+            "indx": 3,
+            "category": 17,
+            "title": "Beterraba",
+            "imagePath": "beterraba"
+        },
+        {
+            "id": 47,
+            "indx": 4,
+            "category": 17,
+            "title": "Brocolis",
+            "imagePath": "brocolis"
+        },
+        {
+            "id": 48,
+            "indx": 5,
+            "category": 17,
+            "title": "Cebola",
+            "imagePath": "cebola"
+        },
+        {
+            "id": 49,
+            "indx": 6,
+            "category": 17,
+            "title": "Cenoura",
+            "imagePath": "cenoura"
+        },
+        {
+            "id": 50,
+            "indx": 7,
+            "category": 17,
+            "title": "Tomate",
+            "imagePath": "tomate"
         }
     ]
 }
