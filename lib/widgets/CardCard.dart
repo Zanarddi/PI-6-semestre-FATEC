@@ -38,9 +38,10 @@ class CardCard extends StatelessWidget {
                 child: Text(
                   _card.title,
                   style: const TextStyle(
-                    fontSize: 16.0, // Tamanho da fonte do título
-                    fontWeight: FontWeight.bold, // Negrito do título
-                  ),
+                      fontSize: 22.0, // Tamanho da fonte do título
+                      fontFamily: 'Khand',
+                      fontWeight: FontWeight.bold // Negrito do título
+                      ),
                 ),
               ),
             ],
