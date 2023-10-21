@@ -71,6 +71,9 @@ class _TutorialScreenState extends State<TutorialScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         FilledButton(
+                          style: FilledButton.styleFrom(
+                              backgroundColor:
+                                  const Color.fromARGB(255, 239, 50, 32)),
                           onPressed: () async {
                             Navigator.pushReplacement(
                               context,
@@ -107,13 +110,13 @@ class _TutorialScreenState extends State<TutorialScreen> {
                             child: Container(
                               margin:
                                   const EdgeInsets.symmetric(horizontal: 8.0),
-                              width: 10.0,
-                              height: 10.0,
+                              width: 18.0,
+                              height: 18.0,
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
                                 color: _currentPage == 0
-                                    ? Colors.blue
-                                    : Colors.grey,
+                                    ? const Color.fromARGB(255, 239, 50, 32)
+                                    : const Color.fromARGB(255, 217, 217, 217),
                               ),
                             ),
                           ),
@@ -126,13 +129,13 @@ class _TutorialScreenState extends State<TutorialScreen> {
                             child: Container(
                               margin:
                                   const EdgeInsets.symmetric(horizontal: 8.0),
-                              width: 10.0,
-                              height: 10.0,
+                              width: 18.0,
+                              height: 18.0,
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
                                 color: _currentPage == 1
-                                    ? Colors.blue
-                                    : Colors.grey,
+                                    ? const Color.fromARGB(255, 239, 50, 32)
+                                    : const Color.fromARGB(255, 217, 217, 217),
                               ),
                             ),
                           ),
@@ -145,13 +148,13 @@ class _TutorialScreenState extends State<TutorialScreen> {
                             child: Container(
                               margin:
                                   const EdgeInsets.symmetric(horizontal: 8.0),
-                              width: 10.0,
-                              height: 10.0,
+                              width: 18.0,
+                              height: 18.0,
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
                                 color: _currentPage == 2
-                                    ? Colors.blue
-                                    : Colors.grey,
+                                    ? const Color.fromARGB(255, 239, 50, 32)
+                                    : const Color.fromARGB(255, 217, 217, 217),
                               ),
                             ),
                           ),
@@ -166,6 +169,9 @@ class _TutorialScreenState extends State<TutorialScreen> {
                         padding: const EdgeInsets.only(right: 30),
                         child: (_currentPage == 2)
                             ? FilledButton(
+                                style: FilledButton.styleFrom(
+                                    backgroundColor:
+                                        const Color.fromARGB(255, 239, 50, 32)),
                                 onPressed: () async {
                                   Navigator.pushReplacement(
                                     context,
@@ -188,6 +194,9 @@ class _TutorialScreenState extends State<TutorialScreen> {
                                 ),
                               )
                             : FilledButton(
+                                style: FilledButton.styleFrom(
+                                    backgroundColor:
+                                        const Color.fromARGB(255, 239, 50, 32)),
                                 onPressed: () => {
                                   _pageController.nextPage(
                                       duration:

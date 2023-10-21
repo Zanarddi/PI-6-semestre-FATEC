@@ -44,6 +44,8 @@ class _CategoryWrapperState extends State<CategoryWrapper> {
   Widget build(BuildContext context) {
     void _onReorder(int oldIndex, int newIndex) {
       // TODO: implementar a troca de posições no banco de dados
+      print(oldIndex);
+      print(newIndex);
       setState(() {
         Widget row = _tiles.removeAt(oldIndex);
         _tiles.insert(newIndex, row);
