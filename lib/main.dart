@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pi_6_semestre/helpers/DataBaseHelper.dart';
+import 'package:pi_6_semestre/screens/EulaScreen.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 import 'package:pi_6_semestre/screens/CategoriesScreen.dart';
 
@@ -27,67 +29,46 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-  final String title;
-
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
+  bool _isEulaAccepted = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _checkEulaAcceptance();
+  }
+
+  _checkEulaAcceptance() async {
+    setState(() async {
+      _isEulaAccepted = await DataBaseHelper.instance.checkTerms();
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 300,
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-            Text('Ótimo teste'),
-            ElevatedButton(
-                onPressed: () {
-                  _navigateToCategoriesScreen(context);
-                },
-                child: Text('Categorias')),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
-    );
+    if (_isEulaAccepted) {
+      // User has accepted the EULA, navigate to the main screen
+      return const CategoriesScreen(parent: 0, title: "Categorias");
+    } else {
+      // User has not accepted the EULA, show the EULA acceptance screen
+      return const EulaScreen();
+    }
   }
 
   void _navigateToCategoriesScreen(BuildContext context) {
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (ctx) => CategoriesScreen(
+        builder: (ctx) => const CategoriesScreen(
           parent: 0,
           title: "Categorias",
         ),

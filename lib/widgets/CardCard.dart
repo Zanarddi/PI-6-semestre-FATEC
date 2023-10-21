@@ -16,9 +16,10 @@ class CardCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      child: Container(
+      child: SizedBox(
         width: 300,
         child: Card(
+          color: const Color.fromARGB(255, 255, 237, 149),
           clipBehavior: Clip.hardEdge,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30),

@@ -1,18 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:pi_6_semestre/screens/SettingsScreen.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+  final bool returnBtn;
+  final bool settingsBtn;
   final String title;
-  final VoidCallback onSettingsPressed;
-  final VoidCallback onBackButtonPressed;
+  // final VoidCallback onSettingsPressed;
+  // final VoidCallback onBackButtonPressed;
 
   @override
   final Size preferredSize;
 
   const CustomAppBar({
     Key? key,
+    required this.returnBtn,
+    required this.settingsBtn,
     required this.title,
-    required this.onSettingsPressed,
-    required this.onBackButtonPressed,
+    // required this.onSettingsPressed,
+    // required this.onBackButtonPressed,
   })  : preferredSize = const Size.fromHeight(130),
         super(key: key);
 
@@ -39,45 +44,57 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 fontWeight: FontWeight.normal),
           ),
         ),
-
-        leading: Padding(
-          padding: const EdgeInsets.only(left: 40, right: 0, top: 0, bottom: 0),
-          child: CircleAvatar(
-            radius: 35,
-            backgroundColor: const Color.fromARGB(255, 255, 193, 7),
-            child: IconButton(
-              icon: const Icon(
-                Icons.arrow_back,
-                size: 50,
-                color: Colors.white,
-              ),
-              onPressed: onBackButtonPressed,
-            ),
-          ),
-        ),
+        leading: returnBtn == true
+            ? Padding(
+                padding: const EdgeInsets.only(
+                    left: 40, right: 0, top: 0, bottom: 0),
+                child: CircleAvatar(
+                  radius: 35,
+                  backgroundColor: const Color.fromARGB(255, 255, 193, 7),
+                  child: IconButton(
+                    icon: const Icon(
+                      Icons.arrow_back,
+                      size: 50,
+                      color: Colors.white,
+                    ),
+                    onPressed: () => {_goBack(context)},
+                  ),
+                ),
+              )
+            : null,
 
         actions: [
           Padding(
-            padding:
-                const EdgeInsets.only(left: 0, right: 40, top: 0, bottom: 0),
-            child: CircleAvatar(
-              radius: 35,
-              backgroundColor: const Color.fromARGB(255, 255, 193, 7),
-              child: IconButton(
-                icon: const Icon(
-                  Icons.settings,
-                  size: 50,
-                  color: Colors.white,
-                ),
-                onPressed: onSettingsPressed,
-              ),
-            ),
-          ),
+              padding:
+                  const EdgeInsets.only(left: 0, right: 40, top: 0, bottom: 0),
+              child: settingsBtn == true
+                  ? CircleAvatar(
+                      radius: 35,
+                      backgroundColor: const Color.fromARGB(255, 255, 193, 7),
+                      child: IconButton(
+                        icon: const Icon(
+                          Icons.settings,
+                          size: 50,
+                          color: Colors.white,
+                        ),
+                        onPressed: () => {_tapHandler(context)},
+                      ),
+                    )
+                  : null),
         ],
       ),
     );
   }
 
-  // @override
-  // Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+  Future<void> _tapHandler(BuildContext context) async {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (ctx) => SettingsScreen(),
+      ),
+    );
+  }
+
+  void _goBack(BuildContext context) {
+    Navigator.of(context).pop();
+  }
 }

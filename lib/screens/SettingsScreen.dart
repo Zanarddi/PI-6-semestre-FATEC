@@ -1,24 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:pi_6_semestre/models/CategoryModel.dart';
-import 'package:pi_6_semestre/widgets/CardWrapper.dart';
 import 'package:pi_6_semestre/widgets/CustomAppBar.dart';
 
-class CardsScreen extends StatefulWidget {
-  final CategoryModel categoria;
-  const CardsScreen({required this.categoria});
+class SettingsScreen extends StatefulWidget {
+  const SettingsScreen();
 
   @override
-  State<CardsScreen> createState() => _CardsScreen();
+  State<SettingsScreen> createState() => _SettingsScreenState();
 }
 
-class _CardsScreen extends State<CardsScreen> {
+class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       appBar: CustomAppBar(
         returnBtn: true,
-        settingsBtn: true,
-        title: widget.categoria.title,
+        settingsBtn: false,
+        title: "Configurações",
         // onSettingsPressed: () {},
         // onBackButtonPressed: () {
         //   _goBack(context);
@@ -28,9 +25,7 @@ class _CardsScreen extends State<CardsScreen> {
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              CardWrapper(categoria: widget.categoria),
-            ],
+            children: <Widget>[],
           ),
         ),
       ),

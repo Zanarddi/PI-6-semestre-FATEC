@@ -76,6 +76,16 @@ class DataBaseHelper {
     return await db.update("settings", {'terms': 1}, where: "id = 1");
   }
 
+  Future<bool> checkTerms() async {
+    Database db = await instance.database;
+    var result = await db.query('settings');
+    if (result[0]['terms'] == 1) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   Future<List<Map<String, dynamic>>> getCategories(int parentId) async {
     Database db = await instance.database;
     return await db
