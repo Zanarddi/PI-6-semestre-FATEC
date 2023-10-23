@@ -71,6 +71,16 @@ class DataBaseHelper {
     );
   }
 
+  Future<int> updateIndexCard(int cardId, int indx) async {
+    Database db = await instance.database;
+    return await db.update("card", {'indx': indx}, where: "id = $cardId");
+  }
+
+  Future<int> updateIndexCategory(int cardId, int indx) async {
+    Database db = await instance.database;
+    return await db.update("category", {'indx': indx}, where: "id = $cardId");
+  }
+
   Future<int> acceptTerms() async {
     Database db = await instance.database;
     return await db.update("settings", {'terms': 1}, where: "id = 1");
@@ -88,14 +98,14 @@ class DataBaseHelper {
 
   Future<List<Map<String, dynamic>>> getCategories(int parentId) async {
     Database db = await instance.database;
-    return await db
-        .query('category', where: "parent IN (?)", whereArgs: [parentId]);
+    return await db.query('category',
+        where: "parent IN (?)", whereArgs: [parentId], orderBy: 'indx');
   }
 
   Future<List<Map<String, dynamic>>> getCards(int categoryId) async {
     Database db = await instance.database;
-    return await db
-        .query('card', where: "category IN (?)", whereArgs: [categoryId]);
+    return await db.query('card',
+        where: "category IN (?)", whereArgs: [categoryId], orderBy: 'indx');
   }
 
   Future<bool> checkParent(int categoryId) async {

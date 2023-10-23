@@ -13,7 +13,6 @@ class CategoryWrapper extends StatefulWidget {
 }
 
 class _CategoryWrapperState extends State<CategoryWrapper> {
-  final double _iconSize = 90;
   late List<Widget> _tiles = [];
   final String samplePath = 'assets/images/category/example.png';
   var categories;
@@ -35,39 +34,43 @@ class _CategoryWrapperState extends State<CategoryWrapper> {
           .map((category) => CategoryModel(category['id'], category['indx'],
               category['title'], category['imagePath'], category['parent']))
           .toList();
-      _tiles =
-          categories.map<Widget>((category) => CategoryCard(category)).toList();
+      _tiles = categories
+          .map<CategoryCard>((category) => CategoryCard(category))
+          .toList();
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    // ignore: no_leading_underscores_for_local_identifiers
     void _onReorder(int oldIndex, int newIndex) {
-      // TODO: implementar a troca de posições no banco de dados
-      print(oldIndex);
-      print(newIndex);
       setState(() {
         Widget row = _tiles.removeAt(oldIndex);
         _tiles.insert(newIndex, row);
       });
+      _tiles.whereType<CategoryCard>().forEach((categoryCard) async {
+        categoryCard.categoria.indx = _tiles.indexOf(categoryCard);
+        await categoryCard.updateIndex(_tiles.indexOf(categoryCard) + 1);
+      });
     }
 
     var wrap = ReorderableWrap(
-        spacing: 8.0,
-        runSpacing: 4.0,
-        padding: const EdgeInsets.all(8),
-        children: _tiles,
-        onReorder: _onReorder,
-        onNoReorder: (int index) {
-          //this callback is optional
-          debugPrint(
-              '${DateTime.now().toString().substring(5, 22)} reorder cancelled. index:$index');
-        },
-        onReorderStarted: (int index) {
-          //this callback is optional
-          debugPrint(
-              '${DateTime.now().toString().substring(5, 22)} reorder started: index:$index');
-        });
+      spacing: 8.0,
+      runSpacing: 4.0,
+      padding: const EdgeInsets.all(8),
+      onReorder: _onReorder,
+      onNoReorder: (int index) {
+        //this callback is optional
+        debugPrint(
+            '${DateTime.now().toString().substring(5, 22)} reorder cancelled. index:$index');
+      },
+      onReorderStarted: (int index) {
+        //this callback is optional
+        debugPrint(
+            '${DateTime.now().toString().substring(5, 22)} reorder started: index:$index');
+      },
+      children: _tiles,
+    );
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

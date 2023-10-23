@@ -15,6 +15,8 @@ class CategoryCard extends StatelessWidget {
     return "assets/images/category/${_categoria.imagePath}.jpg";
   }
 
+  CategoryModel get categoria => _categoria;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -72,5 +74,10 @@ class CategoryCard extends StatelessWidget {
         ),
       );
     }
+  }
+
+  Future<void> updateIndex(int newIndex) async {
+    print('${_categoria.title} - ${_categoria.indx} - $newIndex');
+    await DataBaseHelper.instance.updateIndexCategory(_categoria.id, newIndex);
   }
 }

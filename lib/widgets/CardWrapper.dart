@@ -41,12 +41,13 @@ class _CardWrapperState extends State<CardWrapper> {
   @override
   Widget build(BuildContext context) {
     void _onReorder(int oldIndex, int newIndex) {
-      // TODO: implementar a troca de posições no banco de dados
-      print(oldIndex);
-      print(newIndex);
       setState(() {
         Widget row = _tiles.removeAt(oldIndex);
         _tiles.insert(newIndex, row);
+      });
+      _tiles.whereType<CardCard>().forEach((cardCard) async {
+        cardCard.card.indx = _tiles.indexOf(cardCard);
+        await cardCard.updateIndex(_tiles.indexOf(cardCard) + 1);
       });
     }
 
@@ -54,7 +55,6 @@ class _CardWrapperState extends State<CardWrapper> {
         spacing: 8.0,
         runSpacing: 4.0,
         padding: const EdgeInsets.all(8),
-        children: _tiles,
         onReorder: _onReorder,
         onNoReorder: (int index) {
           //this callback is optional
@@ -65,7 +65,8 @@ class _CardWrapperState extends State<CardWrapper> {
           //this callback is optional
           debugPrint(
               '${DateTime.now().toString().substring(5, 22)} reorder started: index:$index');
-        });
+        },
+        children: _tiles);
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,

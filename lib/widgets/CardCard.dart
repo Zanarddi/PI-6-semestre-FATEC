@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pi_6_semestre/helpers/DataBaseHelper.dart';
 import 'package:pi_6_semestre/models/CardModel.dart';
 
 class CardCard extends StatelessWidget {
@@ -12,6 +13,8 @@ class CardCard extends StatelessWidget {
   String getImage() {
     return "assets/images/cards/${_card.imagePath}.jpg";
   }
+
+  CardModel get card => _card;
 
   @override
   Widget build(BuildContext context) {
@@ -50,5 +53,9 @@ class CardCard extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future<void> updateIndex(int newIndex) async {
+    await DataBaseHelper.instance.updateIndexCard(_card.id, newIndex);
   }
 }
