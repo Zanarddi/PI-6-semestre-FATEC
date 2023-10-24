@@ -916,6 +916,125 @@
             "category": 9,
             "title": "Zero",
             "imagePath": "zero"
+        },
+        {
+            "id": 133,
+            "indx": 1,
+            "category": 6,
+            "title": "Blusa",
+            "imagePath": "blusa"
+        },
+        {
+            "id": 134,
+            "indx": 2,
+            "category": 6,
+            "title": "Boné",
+            "imagePath": "bone"
+        },
+        {
+            "id": 135,
+            "indx": 3,
+            "category": 6,
+            "title": "Bota",
+            "imagePath": "bota"
+        },
+        {
+            "id": 136,
+            "indx": 4,
+            "category": 6,
+            "title": "Calça",
+            "imagePath": "calca"
+        },
+        {
+            "id": 137,
+            "indx": 5,
+            "category": 6,
+            "title": "Calcinha",
+            "imagePath": "calcinha"
+        },
+        {
+            "id": 138,
+            "indx": 6,
+            "category": 6,
+            "title": "Camiseta",
+            "imagePath": "camiseta"
+        },
+        {
+            "id": 139,
+            "indx": 7,
+            "category": 6,
+            "title": "Chinelo",
+            "imagePath": "chinelo"
+        },
+        {
+            "id": 140,
+            "indx": 8,
+            "category": 6,
+            "title": "Cueca",
+            "imagePath": "cueca"
+        },
+        {
+            "id": 141,
+            "indx": 9,
+            "category": 6,
+            "title": "Laço de Cabelo",
+            "imagePath": "lacodecabelo"
+        },
+        {
+            "id": 142,
+            "indx": 10,
+            "category": 6,
+            "title": "Meia",
+            "imagePath": "meia"
+        },
+        {
+            "id": 143,
+            "indx": 11,
+            "category": 6,
+            "title": "Pijama",
+            "imagePath": "pijama"
+        },
+        {
+            "id": 144,
+            "indx": 12,
+            "category": 6,
+            "title": "Saia",
+            "imagePath": "saia"
+        },
+        {
+            "id": 145,
+            "indx": 13,
+            "category": 6,
+            "title": "Sapatilha",
+            "imagePath": "sapatilha"
+        },
+        {
+            "id": 146,
+            "indx": 14,
+            "category": 6,
+            "title": "Shorts",
+            "imagePath": "shorts"
+        },
+        {
+            "id": 147,
+            "indx": 15,
+            "category": 6,
+            "title": "Sutiã",
+            "imagePath": "sutia"
+        },
+        {
+            "id": 148,
+            "indx": 16,
+            "category": 6,
+            "title": "Tênis",
+            "imagePath": "tenis"
+        },
+        {
+            "id": 149,
+            "indx": 17,
+            "category": 6,
+            "title": "Touca",
+            "imagePath": "touca"
         }
     ]
 }
