@@ -29,17 +29,16 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       child: AppBar(
         toolbarHeight: 130,
         backgroundColor: const Color.fromARGB(255, 255, 245, 192),
-        // backgroundColor: Color.fromARGB(255, 158, 140, 51),
         centerTitle: true,
         automaticallyImplyLeading: false,
         leadingWidth:
-            110, //deve considerar o padding do lead e 2 vezes o raio do circleAvatar
+            65, //deve considerar o padding do lead e 2 vezes o raio do circleAvatar
         title: Padding(
           padding: const EdgeInsets.only(top: 0, left: 0),
           child: Text(
             title,
             style: const TextStyle(
-                fontSize: 68,
+                fontSize: 40,
                 fontFamily: 'Khand',
                 fontWeight: FontWeight.normal),
           ),
@@ -47,14 +46,14 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         leading: returnBtn == true
             ? Padding(
                 padding: const EdgeInsets.only(
-                    left: 40, right: 0, top: 0, bottom: 0),
+                    left: 15, right: 0, top: 0, bottom: 0),
                 child: CircleAvatar(
-                  radius: 35,
+                  radius: 25,
                   backgroundColor: const Color.fromARGB(255, 255, 193, 7),
                   child: IconButton(
                     icon: const Icon(
                       Icons.arrow_back,
-                      size: 50,
+                      size: 30,
                       color: Colors.white,
                     ),
                     onPressed: () => {_goBack(context)},
@@ -66,15 +65,15 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         actions: [
           Padding(
               padding:
-                  const EdgeInsets.only(left: 0, right: 40, top: 0, bottom: 0),
+                  const EdgeInsets.only(left: 0, right: 15, top: 0, bottom: 0),
               child: settingsBtn == true
                   ? CircleAvatar(
-                      radius: 35,
+                      radius: 25,
                       backgroundColor: const Color.fromARGB(255, 255, 193, 7),
                       child: IconButton(
                         icon: const Icon(
                           Icons.settings,
-                          size: 50,
+                          size: 30,
                           color: Colors.white,
                         ),
                         onPressed: () => {_tapHandler(context)},
