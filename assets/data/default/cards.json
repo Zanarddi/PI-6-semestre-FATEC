@@ -1217,6 +1217,146 @@
           "category": 10,
           "title": "Z",
           "imagePath": "z"
+        },
+        {
+          "id": 176,
+          "indx": 1,
+          "category": 6,
+          "title": "Borracha",
+          "imagePath": "borracha"
+        },
+        {
+          "id": 177,
+          "indx": 2,
+          "category": 6,
+          "title": "Brinco",
+          "imagePath": "brinco"
+        },
+        {
+          "id": 178,
+          "indx": 3,
+          "category": 6,
+          "title": "Caderno",
+          "imagePath": "caderno"
+        },
+        {
+          "id": 179,
+          "indx": 4,
+          "category": 6,
+          "title": "Caneta",
+          "imagePath": "caneta"
+        },
+        {
+          "id": 180,
+          "indx": 5,
+          "category": 6,
+          "title": "Celular",
+          "imagePath": "celular"
+        },
+        {
+          "id": 181,
+          "indx": 6,
+          "category": 6,
+          "title": "Colar",
+          "imagePath": "colar"
+        },
+        {
+          "id": 182,
+          "indx": 7,
+          "category": 6,
+          "title": "Copo",
+          "imagePath": "copo"
+        },
+        {
+          "id": 183,
+          "indx": 8,
+          "category": 6,
+          "title": "Estojo",
+          "imagePath": "estojo"
+        },
+        {
+          "id": 184,
+          "indx": 9,
+          "category": 6,
+          "title": "Faca",
+          "imagePath": "faca"
+        },
+        {
+          "id": 185,
+          "indx": 10,
+          "category": 6,
+          "title": "Fone de ouvido",
+          "imagePath": "fonedeouvido"
+        },
+        {
+          "id": 186,
+          "indx": 11,
+          "category": 6,
+          "title": "Garfo",
+          "imagePath": "garfo"
+        },
+        {
+          "id": 187,
+          "indx": 12,
+          "category": 6,
+          "title": "Garrafa",
+          "imagePath": "garrafa"
+        },
+        {
+          "id": 188,
+          "indx": 13,
+          "category": 6,
+          "title": "Mochila",
+          "imagePath": "mochila"
+        },
+        {
+          "id": 189,
+          "indx": 14,
+          "category": 6,
+          "title": "Notebook",
+          "imagePath": "notebook"
+        },
+        {
+          "id": 190,
+          "indx": 15,
+          "category": 6,
+          "title": "Prato",
+          "imagePath": "prato"
+        },
+        {
+          "id": 191,
+          "indx": 16,
+          "category": 6,
+          "title": "Pulseira",
+          "imagePath": "pulseira"
+        },
+        {
+          "id": 192,
+          "indx": 17,
+          "category": 6,
+          "title": "Relógio",
+          "imagePath": "relogio"
+        },
+        {
+          "id": 193,
+          "indx": 18,
+          "category": 6,
+          "title": "Tablet",
+          "imagePath": "tablet"
+        },
+        {
+          "id": 194,
+          "indx": 19,
+          "category": 6,
+          "title": "Tiara",
+          "imagePath": "tiara"
+        },
+        {
+          "id": 195,
+          "indx": 20,
+          "category": 6,
+          "title": "Xícara",
+          "imagePath": "xicara"
         }
     ]
 }
