@@ -45,10 +45,7 @@ class _CardWrapperState extends State<CardWrapper> {
         Widget row = _tiles.removeAt(oldIndex);
         _tiles.insert(newIndex, row);
       });
-      _tiles.whereType<CardCard>().forEach((cardCard) async {
-        cardCard.card.indx = _tiles.indexOf(cardCard);
-        await cardCard.updateIndex(_tiles.indexOf(cardCard) + 1);
-      });
+      reorderIndx();
     }
 
     var wrap = ReorderableWrap(
@@ -72,5 +69,12 @@ class _CardWrapperState extends State<CardWrapper> {
       mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[wrap],
     );
+  }
+
+  void reorderIndx() {
+    _tiles.whereType<CardCard>().forEach((cardCard) async {
+      cardCard.card.indx = _tiles.indexOf(cardCard);
+      await cardCard.updateIndex(_tiles.indexOf(cardCard) + 1);
+    });
   }
 }

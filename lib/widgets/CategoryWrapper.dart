@@ -48,10 +48,7 @@ class _CategoryWrapperState extends State<CategoryWrapper> {
         Widget row = _tiles.removeAt(oldIndex);
         _tiles.insert(newIndex, row);
       });
-      _tiles.whereType<CategoryCard>().forEach((categoryCard) async {
-        categoryCard.categoria.indx = _tiles.indexOf(categoryCard);
-        await categoryCard.updateIndex(_tiles.indexOf(categoryCard) + 1);
-      });
+      reorderIndx();
     }
 
     var wrap = ReorderableWrap(
@@ -76,5 +73,12 @@ class _CategoryWrapperState extends State<CategoryWrapper> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[wrap],
     );
+  }
+
+  void reorderIndx() {
+    _tiles.whereType<CategoryCard>().forEach((categoryCard) async {
+      categoryCard.categoria.indx = _tiles.indexOf(categoryCard);
+      await categoryCard.updateIndex(_tiles.indexOf(categoryCard) + 1);
+    });
   }
 }
