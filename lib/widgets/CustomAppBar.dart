@@ -18,7 +18,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     required this.title,
     // required this.onSettingsPressed,
     // required this.onBackButtonPressed,
-  })  : preferredSize = const Size.fromHeight(130),
+  })  : preferredSize = const Size.fromHeight(120),
         super(key: key);
 
   @override
@@ -27,7 +27,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       padding: const EdgeInsets.only(left: 0, right: 0, top: 0, bottom: 0),
       // padding: const EdgeInsets.only(left: 40, right: 40, top: 30, bottom: 30),
       child: AppBar(
-        toolbarHeight: 130,
+        toolbarHeight: 120,
         backgroundColor: const Color.fromARGB(255, 255, 245, 192),
         centerTitle: true,
         automaticallyImplyLeading: false,

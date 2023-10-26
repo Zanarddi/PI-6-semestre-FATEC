@@ -19,17 +19,18 @@ class CategoryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double cardWidth = width * 0.46;
     return GestureDetector(
       onTap: () => {_tapHandler(context)},
       child: SizedBox(
-        width: 300,
+        width: cardWidth,
         child: Card(
           color: const Color.fromARGB(255, 255, 237, 149),
           clipBehavior: Clip.hardEdge,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30),
           ),
-          // margin: const EdgeInsets.all(10),
           elevation: 3, // Sombra do card
           child: Column(
             children: <Widget>[
@@ -37,8 +38,8 @@ class CategoryCard extends StatelessWidget {
                 // defaultPath,
                 getImage(),
                 fit: BoxFit.cover, // Ajustar a imagem dentro do card
-                height: 300,
-                width: 300, // Altura da imagem
+                height: cardWidth,
+                // width: 300, // Altura da imagem
               ),
               Padding(
                 padding: const EdgeInsets.all(10.0), // Espaçamento interno

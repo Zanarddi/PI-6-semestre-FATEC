@@ -18,9 +18,11 @@ class CardCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double cardWidth = width * 0.46;
     return GestureDetector(
       child: SizedBox(
-        width: 300,
+        width: cardWidth,
         child: Card(
           color: const Color.fromARGB(255, 255, 237, 149),
           clipBehavior: Clip.hardEdge,
@@ -34,8 +36,8 @@ class CardCard extends StatelessWidget {
                 // defaultPath,
                 getImage(),
                 fit: BoxFit.cover, // Ajustar a imagem dentro do card
-                height: 300,
-                width: 300, // Altura da imagem
+                height: cardWidth,
+                // width: 300, // Altura da imagem
               ),
               Padding(
                 padding: const EdgeInsets.all(10.0), // Espaçamento interno

@@ -7,10 +7,9 @@ import 'package:pi_6_semestre/screens/CategoriesScreen.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  sqfliteFfiInit();
-  databaseFactory = databaseFactoryFfi;
-
-  // await dbHelper.initializeDataBase();
+  // sqfliteFfiInit();
+  // databaseFactory = databaseFactoryFfi;
+  await DataBaseHelper.instance.initializeDataBase();
 
   runApp(const MyApp());
 }
