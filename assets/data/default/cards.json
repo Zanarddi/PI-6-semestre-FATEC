@@ -176,13 +176,6 @@
             "imagePath": "escovarosdentes"
         },
         {
-            "id": 26,
-            "indx": 1,
-            "category": 14,
-            "title": "Bebidas",
-            "imagePath": "bebidas"
-        },
-        {
             "id": 27,
             "indx": 2,
             "category": 14,
@@ -250,7 +243,7 @@
             "indx": 2,
             "category": 16,
             "title": "Laranja",
-            "imagePath": "laranjacor"
+            "imagePath": "laranja"
         },
         {
             "id": 37,
@@ -768,7 +761,7 @@
             "indx": 5,
             "category": 11,
             "title": "Laranja",
-            "imagePath": "laranja"
+            "imagePath": "laranjacor"
         },
         {
             "id": 112,

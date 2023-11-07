@@ -96,7 +96,7 @@ class _EulaScreenState extends State<EulaScreen> {
                       });
                     },
                     child: const Text(
-                      'Li e aceito os termos de uso',
+                      'Li e aceito os termos',
                       style: TextStyle(
                           fontSize: 22.0,
                           fontFamily: 'Khand',
