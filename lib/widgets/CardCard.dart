@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pi_6_semestre/helpers/DataBaseHelper.dart';
+import 'package:pi_6_semestre/helpers/TextToSpeechHelper.dart';
 import 'package:pi_6_semestre/models/CardModel.dart';
 
 class CardCard extends StatelessWidget {
@@ -21,6 +22,7 @@ class CardCard extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
     double cardWidth = width * 0.46;
     return GestureDetector(
+      onTap: () => {_tapHandler(_card.title)},
       child: SizedBox(
         width: cardWidth,
         child: Card(
@@ -59,5 +61,9 @@ class CardCard extends StatelessWidget {
 
   Future<void> updateIndex(int newIndex) async {
     await DataBaseHelper.instance.updateIndexCard(_card.id, newIndex);
+  }
+
+  Future<void> _tapHandler(String title) async {
+    TextToSpeechHelper.speak(title);
   }
 }
