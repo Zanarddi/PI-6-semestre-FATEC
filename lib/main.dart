@@ -39,30 +39,61 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  bool _isEulaAccepted = false;
+  Future<bool>? _eulaAcceptanceFuture;
 
   @override
   void initState() {
     super.initState();
-    _checkEulaAcceptance();
-  }
-
-  _checkEulaAcceptance() async {
-    setState(() async {
-      _isEulaAccepted = await DataBaseHelper.instance.checkTerms();
-    });
+    _eulaAcceptanceFuture = DataBaseHelper.instance.checkTerms();
   }
 
   @override
   Widget build(BuildContext context) {
-    if (_isEulaAccepted) {
-      // User has accepted the EULA, navigate to the main screen
-      return const CategoriesScreen(parent: 0, title: "Categorias");
-    } else {
-      // User has not accepted the EULA, show the EULA acceptance screen
-      return const EulaScreen();
-    }
+    return FutureBuilder<bool>(
+      future: _eulaAcceptanceFuture,
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          // Future is still running, show a loading indicator or another
+          // appropriate widget while waiting for the result.
+          return const CircularProgressIndicator();
+        } else if (snapshot.hasError) {
+          // Future completed with an error, handle the error here
+          return Text('Error: ${snapshot.error}');
+        } else if (snapshot.data == true) {
+          // EULA accepted, navigate to the main screen
+          return const CategoriesScreen(parent: 0, title: "Categorias");
+        } else {
+          // EULA not accepted, show the EULA acceptance screen
+          return const EulaScreen();
+        }
+      },
+    );
   }
+
+  // @override
+  // Widget build(BuildContext context) {
+  //   print("build abaixo");
+  //   print(_isEulaAccepted);
+  //   print("build acima");
+  //   var returnScreen;
+  //   _checkEulaAcceptance().then((value) => {
+  //         if (value)
+  //           {
+  //             returnScreen =
+  //                 const CategoriesScreen(parent: 0, title: "Categorias")
+  //           }
+  //         else
+  //           {returnScreen = const EulaScreen()}
+  //       });
+  //   return returnScreen;
+  //   // if (_isEulaAccepted) {
+  //   //   // User has accepted the EULA, navigate to the main screen
+  //   //   return const CategoriesScreen(parent: 0, title: "Categorias");
+  //   // } else {
+  //   //   // User has not accepted the EULA, show the EULA acceptance screen
+  //   //   return const EulaScreen();
+  //   // }
+  // }
 
   void _navigateToCategoriesScreen(BuildContext context) {
     Navigator.of(context).push(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pi_6_semestre/helpers/DataBaseHelper.dart';
 import 'package:pi_6_semestre/helpers/GetAssetHelper.dart';
 import 'package:pi_6_semestre/screens/TutorialScreen.dart';
 
@@ -27,6 +28,14 @@ class _EulaScreenState extends State<EulaScreen> {
 
   @override
   Widget build(BuildContext context) {
+    void acceptTerms() async {
+      await DataBaseHelper.instance.acceptTerms();
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const TutorialScreen()),
+      );
+    }
+
     return Scaffold(
       body: SafeArea(
         child: Center(
@@ -115,16 +124,7 @@ class _EulaScreenState extends State<EulaScreen> {
                       style: ElevatedButton.styleFrom(
                           backgroundColor:
                               const Color.fromARGB(255, 239, 50, 32)),
-                      onPressed: _isTermsAccepted
-                          ? () async {
-                              Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        const TutorialScreen()),
-                              );
-                            }
-                          : null,
+                      onPressed: _isTermsAccepted ? acceptTerms : null,
                       child: const Text(
                         'Continuar',
                         style: TextStyle(
