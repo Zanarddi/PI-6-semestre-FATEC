@@ -1,3 +1,4 @@
 {
-    "cmake.sourceDirectory": "C:/Programs/Flutter/pi_6_semestre/windows"
+    "cmake.sourceDirectory": "C:/Programs/Flutter/pi_6_semestre/windows",
+    "java.configuration.updateBuildConfiguration": "interactive"
 }

@@ -43,13 +43,16 @@ class CardCard extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.all(10.0), // Espaçamento interno
-                child: Text(
-                  _card.title,
-                  style: const TextStyle(
-                      fontSize: 22.0, // Tamanho da fonte do título
-                      fontFamily: 'Khand',
-                      fontWeight: FontWeight.bold // Negrito do título
-                      ),
+                child: FittedBox(
+                  fit: BoxFit.fitWidth,
+                  child: Text(
+                    _card.title,
+                    style: const TextStyle(
+                        fontSize: 22.0, // Tamanho da fonte do título
+                        fontFamily: 'Khand',
+                        fontWeight: FontWeight.bold // Negrito do título
+                        ),
+                  ),
                 ),
               ),
             ],

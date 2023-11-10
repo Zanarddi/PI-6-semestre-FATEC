@@ -11,7 +11,11 @@ class SettingsScreen extends StatefulWidget {
 
 class _SettingsScreenState extends State<SettingsScreen> {
   void _launchURL(String url) async {
-    await canLaunch(url) ? await launch(url) : throw 'Could not launch $url';
+    try {
+      await launch(url);
+    } catch (e) {
+      print(e);
+    }
   }
 
   final styleText = const TextStyle(

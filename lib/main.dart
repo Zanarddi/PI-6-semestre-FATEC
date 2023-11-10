@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:pi_6_semestre/helpers/DataBaseHelper.dart';
 import 'package:pi_6_semestre/screens/EulaScreen.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
@@ -6,10 +7,14 @@ import 'package:pi_6_semestre/screens/CategoriesScreen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
-  // await DataBaseHelper.instance.initializeDataBase();
-  sqfliteFfiInit();
-  databaseFactory = databaseFactoryFfi;
+//Setting SysemUIOverlay
+  // SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky,
+      overlays: [SystemUiOverlay.top]);
+  // SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.top]);
+  await DataBaseHelper.instance.initializeDataBase();
+  // sqfliteFfiInit();
+  // databaseFactory = databaseFactoryFfi;
 
   runApp(const MyApp());
 }
@@ -67,42 +72,6 @@ class _MyHomePageState extends State<MyHomePage> {
           return const EulaScreen();
         }
       },
-    );
-  }
-
-  // @override
-  // Widget build(BuildContext context) {
-  //   print("build abaixo");
-  //   print(_isEulaAccepted);
-  //   print("build acima");
-  //   var returnScreen;
-  //   _checkEulaAcceptance().then((value) => {
-  //         if (value)
-  //           {
-  //             returnScreen =
-  //                 const CategoriesScreen(parent: 0, title: "Categorias")
-  //           }
-  //         else
-  //           {returnScreen = const EulaScreen()}
-  //       });
-  //   return returnScreen;
-  //   // if (_isEulaAccepted) {
-  //   //   // User has accepted the EULA, navigate to the main screen
-  //   //   return const CategoriesScreen(parent: 0, title: "Categorias");
-  //   // } else {
-  //   //   // User has not accepted the EULA, show the EULA acceptance screen
-  //   //   return const EulaScreen();
-  //   // }
-  // }
-
-  void _navigateToCategoriesScreen(BuildContext context) {
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (ctx) => const CategoriesScreen(
-          parent: 0,
-          title: "Categorias",
-        ),
-      ),
     );
   }
 }
