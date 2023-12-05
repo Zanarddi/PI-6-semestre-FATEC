@@ -54,12 +54,10 @@ class _CardWrapperState extends State<CardWrapper> {
         padding: const EdgeInsets.all(8),
         onReorder: _onReorder,
         onNoReorder: (int index) {
-          //this callback is optional
           debugPrint(
               '${DateTime.now().toString().substring(5, 22)} reorder cancelled. index:$index');
         },
         onReorderStarted: (int index) {
-          //this callback is optional
           debugPrint(
               '${DateTime.now().toString().substring(5, 22)} reorder started: index:$index');
         },

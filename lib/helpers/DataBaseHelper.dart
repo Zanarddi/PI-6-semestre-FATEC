@@ -89,9 +89,6 @@ class DataBaseHelper {
   Future<bool> checkTerms() async {
     Database db = await instance.database;
     var result = await db.query('settings');
-    print("database helper abaixo");
-    print(result[0]['terms']);
-    print("database helper acima");
     if (result[0]['terms'] == 1) {
       return true;
     } else {

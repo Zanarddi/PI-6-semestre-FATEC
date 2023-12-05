@@ -32,29 +32,54 @@ class _TutorialScreenState extends State<TutorialScreen> {
                   children: <Widget>[
                     // Panel 1
                     Container(
-                      color: Colors.blue,
-                      child: const Center(
-                        child: Text('Panel 1',
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 24.0)),
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Color.fromARGB(255, 252, 237, 160),
+                          width: 3,
+                        ),
+                        borderRadius: BorderRadius.circular(30),
+                        color: Colors.transparent,
+                      ),
+                      child: Center(
+                        child: Image.asset(
+                          "assets/images/tutorial/tutorial1.jpg",
+                          fit: BoxFit.cover, // Ajustar a imagem dentro do card
+                        ),
                       ),
                     ),
                     // Panel 2
                     Container(
-                      color: Colors.green,
-                      child: const Center(
-                        child: Text('Panel 2',
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 24.0)),
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Color.fromARGB(255, 252, 237, 160),
+                          width: 3,
+                        ),
+                        borderRadius: BorderRadius.circular(30),
+                        color: Colors.transparent,
+                      ),
+                      // color: Colors.transparent,
+                      child: Center(
+                        child: Image.asset(
+                          "assets/images/tutorial/tutorial2.jpg",
+                          fit: BoxFit.cover, // Ajustar a imagem dentro do card
+                        ),
                       ),
                     ),
                     // Panel 3
                     Container(
-                      color: Colors.orange,
-                      child: const Center(
-                        child: Text('Panel 3',
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 24.0)),
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Color.fromARGB(255, 252, 237, 160),
+                          width: 3,
+                        ),
+                        borderRadius: BorderRadius.circular(30),
+                        color: Colors.transparent,
+                      ),
+                      child: Center(
+                        child: Image.asset(
+                          "assets/images/tutorial/tutorial3.jpg",
+                          fit: BoxFit.cover, // Ajustar a imagem dentro do card
+                        ),
                       ),
                     ),
                   ],

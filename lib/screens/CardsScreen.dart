@@ -19,10 +19,6 @@ class _CardsScreen extends State<CardsScreen> {
         returnBtn: true,
         settingsBtn: true,
         title: widget.categoria.title,
-        // onSettingsPressed: () {},
-        // onBackButtonPressed: () {
-        //   _goBack(context);
-        // },
       ),
       body: Center(
         child: SingleChildScrollView(
@@ -36,8 +32,4 @@ class _CardsScreen extends State<CardsScreen> {
       ),
     );
   }
-
-  // void _goBack(BuildContext context) {
-  //   Navigator.of(context).pop();
-  // }
 }

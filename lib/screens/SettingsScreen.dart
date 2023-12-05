@@ -28,65 +28,78 @@ class _SettingsScreenState extends State<SettingsScreen> {
         returnBtn: true,
         settingsBtn: false,
         title: "Configurações",
-        // onSettingsPressed: () {},
-        // onBackButtonPressed: () {
-        //   _goBack(context);
-        // },
       ),
-      body: Center(
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              ListTile(
-                textColor: Colors.black,
-                titleTextStyle: styleText,
-                title: const Center(
-                  child: Text('Sobre nós'),
-                ),
-                onTap: () {
-                  _launchURL('https://github.com/Zanarddi/PI-6-semestre-FATEC');
-                },
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: <Widget>[
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  ListTile(
+                    textColor: Colors.black,
+                    titleTextStyle: styleText,
+                    title: const Center(
+                      child: Text('Sobre nós'),
+                    ),
+                    onTap: () {
+                      _launchURL(
+                          'https://github.com/Zanarddi/PI-6-semestre-FATEC');
+                    },
+                  ),
+                  ListTile(
+                    textColor: Colors.black,
+                    titleTextStyle: styleText,
+                    title: const Center(
+                      child: Text('Github'),
+                    ),
+                    onTap: () {
+                      _launchURL(
+                          'https://github.com/Zanarddi/PI-6-semestre-FATEC');
+                    },
+                  ),
+                  ListTile(
+                    textColor: Colors.black,
+                    titleTextStyle: styleText,
+                    title: const Center(
+                      child: Text('Termos de Uso'),
+                    ),
+                    onTap: () {
+                      _launchURL(
+                          'https://github.com/Zanarddi/PI-6-semestre-FATEC/blob/main/assets/termos.txt');
+                    },
+                  ),
+                  ListTile(
+                    textColor: Colors.black,
+                    titleTextStyle: styleText,
+                    title: const Center(
+                      child: Text('Entre em contato'),
+                    ),
+                    onTap: () {
+                      _launchURL(
+                          'https://github.com/Zanarddi/PI-6-semestre-FATEC');
+                    },
+                  ),
+                ],
               ),
-              ListTile(
-                textColor: Colors.black,
-                titleTextStyle: styleText,
-                title: const Center(
-                  child: Text('Github'),
-                ),
-                onTap: () {
-                  _launchURL('https://github.com/Zanarddi/PI-6-semestre-FATEC');
-                },
-              ),
-              ListTile(
-                textColor: Colors.black,
-                titleTextStyle: styleText,
-                title: const Center(
-                  child: Text('Termos de Uso'),
-                ),
-                onTap: () {
-                  _launchURL(
-                      'https://github.com/Zanarddi/PI-6-semestre-FATEC/blob/main/assets/termos.txt');
-                },
-              ),
-              ListTile(
-                textColor: Colors.black,
-                titleTextStyle: styleText,
-                title: const Center(
-                  child: Text('Entre em contato'),
-                ),
-                onTap: () {
-                  _launchURL('https://github.com/Zanarddi/PI-6-semestre-FATEC');
-                },
-              ),
-            ],
+            ),
           ),
-        ),
+          const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Align(
+              alignment: Alignment.bottomRight,
+              child: Text(
+                'Version 1.0', // Replace with your actual version number
+                style: TextStyle(
+                  color: Colors.grey,
+                  fontSize: 12.0,
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
-
-  // void _goBack(BuildContext context) {
-  //   Navigator.of(context).pop();
-  // }
 }

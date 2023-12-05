@@ -7,12 +7,12 @@ import 'package:pi_6_semestre/screens/CategoriesScreen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-//Setting SysemUIOverlay
-  // SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
-  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky,
-      overlays: [SystemUiOverlay.top]);
-  // SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.top]);
+
+  // PARA RODA NO EMULADOR NO COMPUTADOR, DESCOMENTE AS LINHAS 15 e 16 E COMENTE A LINHA 13.
+  // PARA RODAR NO CELULAR, DESCOMENTE A LINHA 13 E COMENTE AS LINHAS 15 e 16.
+
   await DataBaseHelper.instance.initializeDataBase();
+
   // sqfliteFfiInit();
   // databaseFactory = databaseFactoryFfi;
 
@@ -58,17 +58,12 @@ class _MyHomePageState extends State<MyHomePage> {
       future: _eulaAcceptanceFuture,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          // Future is still running, show a loading indicator or another
-          // appropriate widget while waiting for the result.
           return const CircularProgressIndicator();
         } else if (snapshot.hasError) {
-          // Future completed with an error, handle the error here
           return Text('Error: ${snapshot.error}');
         } else if (snapshot.data == true) {
-          // EULA accepted, navigate to the main screen
           return const CategoriesScreen(parent: 0, title: "Categorias");
         } else {
-          // EULA not accepted, show the EULA acceptance screen
           return const EulaScreen();
         }
       },

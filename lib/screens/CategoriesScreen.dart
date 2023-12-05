@@ -20,10 +20,6 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
         returnBtn: !(widget.parent == 0),
         settingsBtn: true,
         title: widget.title,
-        // onSettingsPressed: () {},
-        // onBackButtonPressed: () {
-        //   _goBack(context);
-        // },
       ),
       body: Center(
         child: SingleChildScrollView(
@@ -39,8 +35,4 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
       ),
     );
   }
-
-  // void _goBack(BuildContext context) {
-  //   Navigator.of(context).pop();
-  // }
 }
